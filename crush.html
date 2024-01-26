@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Moments</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4caf50;
+            color: white;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        #message-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        #message-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .message {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Special Moments</h1>
+    </header>
+
+    <section>
+        <input type="text" id="message-input" placeholder="Share a special message...">
+        <button onclick="addMessage()">Send</button>
+        <ul id="message-list"></ul>
+    </section>
+
+    <script>
+        function addMessage() {
+            const messageInput = document.getElementById("message-input");
+            const messageList = document.getElementById("message-list");
+
+            if (messageInput.value.trim() !== "") {
+                const newMessage = document.createElement("li");
+                newMessage.className = "message";
+                newMessage.textContent = messageInput.value;
+                
+                messageList.appendChild(newMessage);
+                messageInput.value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
